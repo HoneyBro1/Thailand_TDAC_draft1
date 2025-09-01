@@ -1,65 +1,66 @@
 const HeroSection = () => {
   return (
-    <section className="relative bg-gradient-to-br from-amber-100 via-orange-50 to-yellow-100 py-20 overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d97706' fill-opacity='0.3'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-        }} />
+    <section className="h-screen flex">
+      {/* Left Side - Thai Beach Image */}
+      <div className="w-1/2 relative">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat rounded-br-[3rem] h-11/12"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80')`,
+            filter: 'brightness(0.8)',
+            backgroundPosition: 'center center',
+            backgroundSize: 'cover'
+          }}
+        >
+        </div>
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center">
-          {/* Main Title */}
-          <div className="mb-8">
-            <h1 className="text-6xl md:text-8xl font-bold retro-text tracking-wider mb-4 pixel-bounce">
-              <span className="text-amber-800 drop-shadow-lg">THAILAND</span>
-              <br />
-              <span className="text-orange-700 text-4xl md:text-6xl">TDAC</span>
-            </h1>
-            <div className="w-32 h-1 bg-gradient-to-r from-amber-600 to-orange-600 mx-auto rounded-full retro-glow"></div>
-          </div>
+      {/* Right Side - Content */}
+      <div className="w-1/2 bg-white p-12 flex flex-col justify-start items-center text-center pt-20">
+        {/* Main Title */}
+        <h1 className="text-6xl font-bold text-red-800 mb-6 leading-tight" style={{fontFamily: 'Arial, sans-serif'}}>
+          Thailand Digital Arrival Card
+        </h1>
 
-          {/* Subtitle */}
-          <h2 className="text-2xl md:text-4xl font-bold text-amber-900 font-mono mb-6 leading-tight">
-            Thailand Digital Arrival Card
-          </h2>
+        {/* Subtitle */}
+        <p className="text-xl text-black mb-8 font-bold" style={{fontFamily: 'Arial, sans-serif'}}>
+          All travellers must present the Thailand Digital Arrival Card to arrival in Thailand
+        </p>
 
-          {/* Description */}
-          <p className="text-lg md:text-xl text-amber-800 font-mono mb-8 max-w-4xl mx-auto leading-relaxed">
-            <span className="font-bold text-orange-700">Mandatory for all travelers</span> wishing to enter Thailand
-          </p>
-
-          {/* Main CTA */}
-          <div className="mb-12">
-            <p className="text-xl md:text-2xl font-bold text-amber-900 font-mono mb-8">
-              All travellers must present the Thailand Digital Arrival Card to arrival in Thailand
-            </p>
-          </div>
-
-          {/* Process Steps */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-12">
-            <div className="bg-white/80 backdrop-blur-sm rounded-lg p-6 border-2 border-amber-300 shadow-lg">
-              <div className="text-4xl font-bold text-amber-800 font-mono mb-4">01</div>
-              <h3 className="text-xl font-bold text-amber-900 font-mono mb-2">Complete application</h3>
-              <p className="text-amber-800 font-mono">Complete the application form.</p>
+        {/* Process Steps */}
+        <div className="grid grid-cols-2 gap-6 mb-8">
+                     <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm text-left">
+             <div className="w-8 h-8 mb-3">
+               <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full text-red-800">
+                 <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z M8,12V14H16V12H8M8,16V18H13V16H8Z"/>
+                 <path d="M10,6H14V8H10V6Z"/>
+                 <path d="M8,10H16V12H8V10Z"/>
+               </svg>
+             </div>
+             <h3 className="text-lg font-semibold text-gray-900 mb-2">Complete application</h3>
+             <p className="text-gray-600 text-sm font-bold">Complete the application form.</p>
+           </div>
+          <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm text-left">
+            <div className="w-8 h-8 mb-3">
+              <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full text-red-800">
+                <path d="M20,4H4C2.9,4 2,4.9 2,6V18C2,19.1 2.9,20 4,20H20C21.1,20 22,19.1 22,18V6C22,4.9 21.1,4 20,4M20,8L12,13L4,8V6L12,11L20,6V8Z"/>
+                <circle cx="18" cy="16" r="3" fill="white"/>
+                <path d="M16.5,15.5L17.5,16.5L19.5,14.5" stroke="currentColor" strokeWidth="1.5" fill="none"/>
+              </svg>
             </div>
-            <div className="bg-white/80 backdrop-blur-sm rounded-lg p-6 border-2 border-amber-300 shadow-lg">
-              <div className="text-4xl font-bold text-amber-800 font-mono mb-4">02</div>
-              <h3 className="text-xl font-bold text-amber-900 font-mono mb-2">Receive you document</h3>
-              <p className="text-amber-800 font-mono">Receive your document in the mail.</p>
-            </div>
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">Receive you document</h3>
+            <p className="text-gray-600 text-sm font-bold">Receive your document in the mail.</p>
           </div>
+        </div>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <button className="bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white font-bold font-mono py-4 px-8 retro-button shadow-lg transform hover:scale-105 transition-all duration-300 text-lg retro-pulse">
-              Apply For Thailand Digital Arrival Card
-            </button>
-            <button className="bg-transparent border-2 border-amber-600 text-amber-800 hover:bg-amber-600 hover:text-white font-bold font-mono py-4 px-8 retro-button transition-all duration-300 text-lg">
-              Contact us
-            </button>
-          </div>
+        {/* CTA Buttons */}
+        <div className="flex gap-4">
+          <button className="bg-red-800 hover:bg-red-900 text-white font-semibold py-3 px-6 rounded-lg">
+            Apply For Thailand Digital Arrival Card
+          </button>
+          <button className="bg-black hover:bg-gray-800 text-white font-semibold py-3 px-6 rounded-lg">
+            Contact Us
+          </button>
         </div>
       </div>
     </section>

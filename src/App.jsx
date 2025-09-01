@@ -26,7 +26,7 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 to-orange-100 pixel-grid">
+    <div className="min-h-screen bg-white">
       <Header currentPage={currentPage} setCurrentPage={setCurrentPage} />
       <main>
         {renderPage()}

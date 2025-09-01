@@ -35,17 +35,16 @@ const FaqSection = () => {
   }
 
   return (
-    <section className="py-20 bg-gradient-to-br from-amber-100 to-orange-100">
+    <section className="py-16 bg-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-amber-900 font-mono mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-red-600 mb-6">
             Frequently Asked Questions
           </h2>
-          <p className="text-xl text-amber-800 font-mono mb-8">
+          <p className="text-lg text-gray-600 mb-8">
             All the information you need to know about the Thailand Visa On Arrival
           </p>
-          <div className="w-24 h-1 bg-gradient-to-r from-amber-600 to-orange-600 mx-auto rounded-full"></div>
         </div>
 
         {/* FAQ Items */}
@@ -53,19 +52,19 @@ const FaqSection = () => {
           {faqs.map((faq, index) => (
             <div 
               key={index}
-              className="bg-white/90 backdrop-blur-sm rounded-lg border-2 border-amber-200 shadow-lg overflow-hidden"
+              className="bg-white rounded-lg border border-gray-200 shadow-sm overflow-hidden"
             >
               <button
                 onClick={() => toggleFaq(index)}
-                className="w-full px-6 py-4 text-left focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-inset"
+                className="w-full px-6 py-4 text-left focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-inset"
               >
                 <div className="flex justify-between items-center">
-                  <h3 className="text-lg font-bold text-amber-900 font-mono pr-4">
+                  <h3 className="text-lg font-semibold text-gray-900 pr-4">
                     {faq.question}
                   </h3>
                   <div className="flex-shrink-0">
                     <svg
-                      className={`w-6 h-6 text-amber-600 transform transition-transform duration-200 ${
+                      className={`w-6 h-6 text-gray-500 transform transition-transform duration-200 ${
                         openFaq === index ? 'rotate-180' : ''
                       }`}
                       fill="none"
@@ -80,8 +79,8 @@ const FaqSection = () => {
               
               {openFaq === index && (
                 <div className="px-6 pb-4">
-                  <div className="border-t border-amber-200 pt-4">
-                    <p className="text-amber-800 font-mono leading-relaxed">
+                  <div className="border-t border-gray-200 pt-4">
+                    <p className="text-gray-600 leading-relaxed">
                       {faq.answer}
                     </p>
                   </div>
@@ -91,24 +90,11 @@ const FaqSection = () => {
           ))}
         </div>
 
-        {/* Additional Info */}
+        {/* Online Application Button */}
         <div className="mt-16 text-center">
-          <div className="bg-gradient-to-r from-amber-200 to-orange-200 rounded-lg p-8 border-2 border-amber-300">
-            <h3 className="text-2xl font-bold text-amber-900 font-mono mb-4">
-              Online Application
-            </h3>
-            <p className="text-amber-800 font-mono mb-4">
-              Your personal information is securely encrypted using SSL.
-            </p>
-            <div className="flex justify-center items-center space-x-2">
-              <span className="text-amber-800 font-mono font-bold">SSL</span>
-              <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
-                <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                </svg>
-              </div>
-            </div>
-          </div>
+          <button className="bg-pink-500 hover:bg-pink-600 text-white font-semibold py-3 px-8 rounded-lg">
+            Online Application
+          </button>
         </div>
       </div>
     </section>

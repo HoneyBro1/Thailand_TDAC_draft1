@@ -198,28 +198,27 @@ const CountryGrid = () => {
   ]
 
   return (
-    <section className="py-20 bg-gradient-to-br from-orange-50 to-amber-100">
+    <section className="py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-amber-900 font-mono mb-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
             Countries that need the Thailand Visa On Arrival
           </h2>
-          <p className="text-xl text-amber-800 font-mono mb-8">
+          <p className="text-lg text-gray-600 mb-8">
             All passengers traveling to Thailand are required to apply online.
           </p>
-          <div className="w-24 h-1 bg-gradient-to-r from-amber-600 to-orange-600 mx-auto rounded-full"></div>
         </div>
 
-        {/* Countries Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-4">
+        {/* Countries Grid - Exact layout from screenshots */}
+        <div className="grid grid-cols-6 gap-4">
           {countries.map((country, index) => (
             <div 
               key={index}
-              className="bg-white/90 backdrop-blur-sm rounded-lg p-4 border-2 border-amber-200 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-center"
+              className="flex items-center space-x-3 p-2 hover:bg-gray-50 rounded"
             >
-              <div className="text-3xl mb-2">{country.flag}</div>
-              <div className="text-xs font-mono text-amber-800 font-bold leading-tight">
+              <div className="text-2xl">{country.flag}</div>
+              <div className="text-sm text-gray-700 font-medium">
                 {country.name}
               </div>
             </div>
@@ -228,9 +227,9 @@ const CountryGrid = () => {
 
         {/* Thailand Highlight */}
         <div className="mt-12 text-center">
-          <div className="bg-gradient-to-r from-amber-200 to-orange-200 rounded-lg p-8 border-2 border-amber-300 max-w-md mx-auto">
-            <div className="text-6xl mb-4">🇹🇭</div>
-            <h3 className="text-2xl font-bold text-amber-900 font-mono">Thailand</h3>
+          <div className="flex items-center justify-center space-x-3">
+            <div className="text-3xl">🇹🇭</div>
+            <h3 className="text-xl font-semibold text-gray-900">Thailand</h3>
           </div>
         </div>
       </div>
