@@ -1,0 +1,241 @@
+const CountryGrid = () => {
+  const countries = [
+    { name: "United States", flag: "🇺🇸", code: "US" },
+    { name: "Canada", flag: "🇨🇦", code: "CA" },
+    { name: "United Kingdom", flag: "🇬🇧", code: "GB" },
+    { name: "Netherlands", flag: "🇳🇱", code: "NL" },
+    { name: "Afghanistan", flag: "🇦🇫", code: "AF" },
+    { name: "Albania", flag: "🇦🇱", code: "AL" },
+    { name: "Algeria", flag: "🇩🇿", code: "DZ" },
+    { name: "Argentina", flag: "🇦🇷", code: "AR" },
+    { name: "Armenia", flag: "🇦🇲", code: "AM" },
+    { name: "Australia", flag: "🇦🇺", code: "AU" },
+    { name: "Austria", flag: "🇦🇹", code: "AT" },
+    { name: "Azerbaijan", flag: "🇦🇿", code: "AZ" },
+    { name: "Bahamas", flag: "🇧🇸", code: "BS" },
+    { name: "Bahrain", flag: "🇧🇭", code: "BH" },
+    { name: "Bangladesh", flag: "🇧🇩", code: "BD" },
+    { name: "Barbados", flag: "🇧🇧", code: "BB" },
+    { name: "Belarus", flag: "🇧🇾", code: "BY" },
+    { name: "Belgium", flag: "🇧🇪", code: "BE" },
+    { name: "Belize", flag: "🇧🇿", code: "BZ" },
+    { name: "Benin", flag: "🇧🇯", code: "BJ" },
+    { name: "Bhutan", flag: "🇧🇹", code: "BT" },
+    { name: "Bolivia", flag: "🇧🇴", code: "BO" },
+    { name: "Bosnia And Herzegovina", flag: "🇧🇦", code: "BA" },
+    { name: "Botswana", flag: "🇧🇼", code: "BW" },
+    { name: "Brazil", flag: "🇧🇷", code: "BR" },
+    { name: "Brunei Darussalam", flag: "🇧🇳", code: "BN" },
+    { name: "Bulgaria", flag: "🇧🇬", code: "BG" },
+    { name: "Burkina Faso", flag: "🇧🇫", code: "BF" },
+    { name: "Burundi", flag: "🇧🇮", code: "BI" },
+    { name: "Cambodia", flag: "🇰🇭", code: "KH" },
+    { name: "Cameroon", flag: "🇨🇲", code: "CM" },
+    { name: "Cape Verde", flag: "🇨🇻", code: "CV" },
+    { name: "Central African Republic", flag: "🇨🇫", code: "CF" },
+    { name: "Chad", flag: "🇹🇩", code: "TD" },
+    { name: "Chile", flag: "🇨🇱", code: "CL" },
+    { name: "China", flag: "🇨🇳", code: "CN" },
+    { name: "Colombia", flag: "🇨🇴", code: "CO" },
+    { name: "Comoros", flag: "🇰🇲", code: "KM" },
+    { name: "Congo", flag: "🇨🇬", code: "CG" },
+    { name: "Congo, Democratic Republic", flag: "🇨🇩", code: "CD" },
+    { name: "Costa Rica", flag: "🇨🇷", code: "CR" },
+    { name: "Cote D'Ivoire", flag: "🇨🇮", code: "CI" },
+    { name: "Croatia", flag: "🇭🇷", code: "HR" },
+    { name: "Cuba", flag: "🇨🇺", code: "CU" },
+    { name: "Cyprus", flag: "🇨🇾", code: "CY" },
+    { name: "Czech Republic", flag: "🇨🇿", code: "CZ" },
+    { name: "Denmark", flag: "🇩🇰", code: "DK" },
+    { name: "Djibouti", flag: "🇩🇯", code: "DJ" },
+    { name: "Dominica", flag: "🇩🇲", code: "DM" },
+    { name: "Dominican Republic", flag: "🇩🇴", code: "DO" },
+    { name: "Ecuador", flag: "🇪🇨", code: "EC" },
+    { name: "Egypt", flag: "🇪🇬", code: "EG" },
+    { name: "El Salvador", flag: "🇸🇻", code: "SV" },
+    { name: "Equatorial Guinea", flag: "🇬🇶", code: "GQ" },
+    { name: "Eritrea", flag: "🇪🇷", code: "ER" },
+    { name: "Estonia", flag: "🇪🇪", code: "EE" },
+    { name: "Ethiopia", flag: "🇪🇹", code: "ET" },
+    { name: "Fiji", flag: "🇫🇯", code: "FJ" },
+    { name: "Finland", flag: "🇫🇮", code: "FI" },
+    { name: "France", flag: "🇫🇷", code: "FR" },
+    { name: "Gabon", flag: "🇬🇦", code: "GA" },
+    { name: "Gambia", flag: "🇬🇲", code: "GM" },
+    { name: "Georgia", flag: "🇬🇪", code: "GE" },
+    { name: "Germany", flag: "🇩🇪", code: "DE" },
+    { name: "Ghana", flag: "🇬🇭", code: "GH" },
+    { name: "Greece", flag: "🇬🇷", code: "GR" },
+    { name: "Grenada", flag: "🇬🇩", code: "GD" },
+    { name: "Guatemala", flag: "🇬🇹", code: "GT" },
+    { name: "Guinea", flag: "🇬🇳", code: "GN" },
+    { name: "Guinea-Bissau", flag: "🇬🇼", code: "GW" },
+    { name: "Guyana", flag: "🇬🇾", code: "GY" },
+    { name: "Haiti", flag: "🇭🇹", code: "HT" },
+    { name: "Honduras", flag: "🇭🇳", code: "HN" },
+    { name: "Hong Kong", flag: "🇭🇰", code: "HK" },
+    { name: "Hungary", flag: "🇭🇺", code: "HU" },
+    { name: "Iceland", flag: "🇮🇸", code: "IS" },
+    { name: "India", flag: "🇮🇳", code: "IN" },
+    { name: "Indonesia", flag: "🇮🇩", code: "ID" },
+    { name: "Iran, Islamic Republic Of", flag: "🇮🇷", code: "IR" },
+    { name: "Iraq", flag: "🇮🇶", code: "IQ" },
+    { name: "Ireland", flag: "🇮🇪", code: "IE" },
+    { name: "Israel", flag: "🇮🇱", code: "IL" },
+    { name: "Italy", flag: "🇮🇹", code: "IT" },
+    { name: "Jamaica", flag: "🇯🇲", code: "JM" },
+    { name: "Japan", flag: "🇯🇵", code: "JP" },
+    { name: "Jordan", flag: "🇯🇴", code: "JO" },
+    { name: "Kazakhstan", flag: "🇰🇿", code: "KZ" },
+    { name: "Kenya", flag: "🇰🇪", code: "KE" },
+    { name: "Kiribati", flag: "🇰🇮", code: "KI" },
+    { name: "Korea", flag: "🇰🇷", code: "KR" },
+    { name: "Kuwait", flag: "🇰🇼", code: "KW" },
+    { name: "Kyrgyzstan", flag: "🇰🇬", code: "KG" },
+    { name: "Lao People's Democratic Republic", flag: "🇱🇦", code: "LA" },
+    { name: "Latvia", flag: "🇱🇻", code: "LV" },
+    { name: "Lebanon", flag: "🇱🇧", code: "LB" },
+    { name: "Lesotho", flag: "🇱🇸", code: "LS" },
+    { name: "Liberia", flag: "🇱🇷", code: "LR" },
+    { name: "Libyan Arab Jamahiriya", flag: "🇱🇾", code: "LY" },
+    { name: "Liechtenstein", flag: "🇱🇮", code: "LI" },
+    { name: "Lithuania", flag: "🇱🇹", code: "LT" },
+    { name: "Luxembourg", flag: "🇱🇺", code: "LU" },
+    { name: "Macao", flag: "🇲🇴", code: "MO" },
+    { name: "Macedonia", flag: "🇲🇰", code: "MK" },
+    { name: "Madagascar", flag: "🇲🇬", code: "MG" },
+    { name: "Malawi", flag: "🇲🇼", code: "MW" },
+    { name: "Malaysia", flag: "🇲🇾", code: "MY" },
+    { name: "Maldives", flag: "🇲🇻", code: "MV" },
+    { name: "Mali", flag: "🇲🇱", code: "ML" },
+    { name: "Malta", flag: "🇲🇹", code: "MT" },
+    { name: "Marshall Islands", flag: "🇲🇭", code: "MH" },
+    { name: "Mauritania", flag: "🇲🇷", code: "MR" },
+    { name: "Mauritius", flag: "🇲🇺", code: "MU" },
+    { name: "Mexico", flag: "🇲🇽", code: "MX" },
+    { name: "Micronesia, Federated States Of", flag: "🇫🇲", code: "FM" },
+    { name: "Moldova", flag: "🇲🇩", code: "MD" },
+    { name: "Monaco", flag: "🇲🇨", code: "MC" },
+    { name: "Mongolia", flag: "🇲🇳", code: "MN" },
+    { name: "Montenegro", flag: "🇲🇪", code: "ME" },
+    { name: "Morocco", flag: "🇲🇦", code: "MA" },
+    { name: "Mozambique", flag: "🇲🇿", code: "MZ" },
+    { name: "Myanmar", flag: "🇲🇲", code: "MM" },
+    { name: "Namibia", flag: "🇳🇦", code: "NA" },
+    { name: "Nauru", flag: "🇳🇷", code: "NR" },
+    { name: "Nepal", flag: "🇳🇵", code: "NP" },
+    { name: "New Zealand", flag: "🇳🇿", code: "NZ" },
+    { name: "Nicaragua", flag: "🇳🇮", code: "NI" },
+    { name: "Niger", flag: "🇳🇪", code: "NE" },
+    { name: "Nigeria", flag: "🇳🇬", code: "NG" },
+    { name: "Norway", flag: "🇳🇴", code: "NO" },
+    { name: "Oman", flag: "🇴🇲", code: "OM" },
+    { name: "Pakistan", flag: "🇵🇰", code: "PK" },
+    { name: "Palau", flag: "🇵🇼", code: "PW" },
+    { name: "Palestinian Territory, Occupied", flag: "🇵🇸", code: "PS" },
+    { name: "Panama", flag: "🇵🇦", code: "PA" },
+    { name: "Papua New Guinea", flag: "🇵🇬", code: "PG" },
+    { name: "Paraguay", flag: "🇵🇾", code: "PY" },
+    { name: "Peru", flag: "🇵🇪", code: "PE" },
+    { name: "Philippines", flag: "🇵🇭", code: "PH" },
+    { name: "Poland", flag: "🇵🇱", code: "PL" },
+    { name: "Portugal", flag: "🇵🇹", code: "PT" },
+    { name: "Puerto Rico", flag: "🇵🇷", code: "PR" },
+    { name: "Qatar", flag: "🇶🇦", code: "QA" },
+    { name: "Reunion", flag: "🇷🇪", code: "RE" },
+    { name: "Romania", flag: "🇷🇴", code: "RO" },
+    { name: "Rwanda", flag: "🇷🇼", code: "RW" },
+    { name: "Saint Kitts And Nevis", flag: "🇰🇳", code: "KN" },
+    { name: "Saint Lucia", flag: "🇱🇨", code: "LC" },
+    { name: "Saint Vincent And Grenadines", flag: "🇻🇨", code: "VC" },
+    { name: "Samoa", flag: "🇼🇸", code: "WS" },
+    { name: "San Marino", flag: "🇸🇲", code: "SM" },
+    { name: "Sao Tome And Principe", flag: "🇸🇹", code: "ST" },
+    { name: "Saudi Arabia", flag: "🇸🇦", code: "SA" },
+    { name: "Senegal", flag: "🇸🇳", code: "SN" },
+    { name: "Serbia", flag: "🇷🇸", code: "RS" },
+    { name: "Seychelles", flag: "🇸🇨", code: "SC" },
+    { name: "Sierra Leone", flag: "🇸🇱", code: "SL" },
+    { name: "Singapore", flag: "🇸🇬", code: "SG" },
+    { name: "Slovakia", flag: "🇸🇰", code: "SK" },
+    { name: "Slovenia", flag: "🇸🇮", code: "SI" },
+    { name: "Solomon Islands", flag: "🇸🇧", code: "SB" },
+    { name: "Somalia", flag: "🇸🇴", code: "SO" },
+    { name: "South Africa", flag: "🇿🇦", code: "ZA" },
+    { name: "Spain", flag: "🇪🇸", code: "ES" },
+    { name: "Sri Lanka", flag: "🇱🇰", code: "LK" },
+    { name: "Sudan", flag: "🇸🇩", code: "SD" },
+    { name: "Suriname", flag: "🇸🇷", code: "SR" },
+    { name: "Swaziland", flag: "🇸🇿", code: "SZ" },
+    { name: "Sweden", flag: "🇸🇪", code: "SE" },
+    { name: "Switzerland", flag: "🇨🇭", code: "CH" },
+    { name: "Syrian Arab Republic", flag: "🇸🇾", code: "SY" },
+    { name: "Taiwan", flag: "🇹🇼", code: "TW" },
+    { name: "Tajikistan", flag: "🇹🇯", code: "TJ" },
+    { name: "Tanzania", flag: "🇹🇿", code: "TZ" },
+    { name: "Thailand", flag: "🇹🇭", code: "TH" },
+    { name: "Timor-Leste", flag: "🇹🇱", code: "TL" },
+    { name: "Togo", flag: "🇹🇬", code: "TG" },
+    { name: "Tonga", flag: "🇹🇴", code: "TO" },
+    { name: "Trinidad And Tobago", flag: "🇹🇹", code: "TT" },
+    { name: "Tunisia", flag: "🇹🇳", code: "TN" },
+    { name: "Turkey", flag: "🇹🇷", code: "TR" },
+    { name: "Turkmenistan", flag: "🇹🇲", code: "TM" },
+    { name: "Tuvalu", flag: "🇹🇻", code: "TV" },
+    { name: "Uganda", flag: "🇺🇬", code: "UG" },
+    { name: "Ukraine", flag: "🇺🇦", code: "UA" },
+    { name: "United Arab Emirates", flag: "🇦🇪", code: "AE" },
+    { name: "Uruguay", flag: "🇺🇾", code: "UY" },
+    { name: "Uzbekistan", flag: "🇺🇿", code: "UZ" },
+    { name: "Vanuatu", flag: "🇻🇺", code: "VU" },
+    { name: "Venezuela", flag: "🇻🇪", code: "VE" },
+    { name: "Vietnam", flag: "🇻🇳", code: "VN" },
+    { name: "Virgin Islands, British", flag: "🇻🇬", code: "VG" },
+    { name: "Virgin Islands, U.S.", flag: "🇻🇮", code: "VI" },
+    { name: "Yemen", flag: "🇾🇪", code: "YE" },
+    { name: "Zambia", flag: "🇿🇲", code: "ZM" },
+    { name: "Zimbabwe", flag: "🇿🇼", code: "ZW" }
+  ]
+
+  return (
+    <section className="py-20 bg-gradient-to-br from-orange-50 to-amber-100">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-amber-900 font-mono mb-6">
+            Countries that need the Thailand Visa On Arrival
+          </h2>
+          <p className="text-xl text-amber-800 font-mono mb-8">
+            All passengers traveling to Thailand are required to apply online.
+          </p>
+          <div className="w-24 h-1 bg-gradient-to-r from-amber-600 to-orange-600 mx-auto rounded-full"></div>
+        </div>
+
+        {/* Countries Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-4">
+          {countries.map((country, index) => (
+            <div 
+              key={index}
+              className="bg-white/90 backdrop-blur-sm rounded-lg p-4 border-2 border-amber-200 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-center"
+            >
+              <div className="text-3xl mb-2">{country.flag}</div>
+              <div className="text-xs font-mono text-amber-800 font-bold leading-tight">
+                {country.name}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Thailand Highlight */}
+        <div className="mt-12 text-center">
+          <div className="bg-gradient-to-r from-amber-200 to-orange-200 rounded-lg p-8 border-2 border-amber-300 max-w-md mx-auto">
+            <div className="text-6xl mb-4">🇹🇭</div>
+            <h3 className="text-2xl font-bold text-amber-900 font-mono">Thailand</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export default CountryGrid
