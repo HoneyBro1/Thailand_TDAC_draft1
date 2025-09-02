@@ -1,52 +1,51 @@
-import { useState } from 'react'
+import React from 'react';
+// Import Link and NavLink for routing
+import { Link, NavLink } from 'react-router-dom';
 
-const Header = ({ currentPage, setCurrentPage }) => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-
+const Header = () => {
   return (
-    <div>
-      {/* Red Top Banner */}
-      <div className="bg-red-800 text-white text-center py-4">
-        <p className="text-base font-semibold" style={{fontFamily: 'Montserrat, sans-serif'}}>Mandatory for all travelers wishing to enter Thailand</p>
+    <header className="bg-white shadow-md">
+      {/* Top red banner */}
+      <div className="bg-red-800 text-white text-center py-2 text-sm">
+        <p>Mandatory for all travelers wishing to enter Thailand</p>
       </div>
 
-      {/* Header Bar */}
-      <header className="bg-white">
-        <div className="max-w-7xl mx-auto pl-0 pr-4 sm:pr-6 lg:pr-8">
-          <div className="flex justify-between items-center py-4">
-            {/* Logo with Flag */}
-            <div className="flex items-center">
-              <div className="w-12 h-8 mr-4 rounded-sm overflow-hidden border border-gray-400">
-                <div className="h-full flex flex-col">
-                  <div className="h-1/5 bg-red-800"></div>
-                  <div className="h-1/5 bg-white"></div>
-                  <div className="h-2/5 bg-blue-900"></div>
-                  <div className="h-1/5 bg-white"></div>
-                  <div className="h-1/5 bg-red-800"></div>
-                </div>
-              </div>
-                                   <div className="text-3xl" style={{fontFamily: 'Arial, sans-serif'}}>
-                       Thailand TDAC
-                     </div>
-            </div>
+      {/* Main navigation */}
+      <nav className="container mx-auto px-6 py-4">
+        <div className="flex justify-between items-center">
+          
+          {/* Logo and Site Title on the left */}
+          <Link to="/" className="flex items-center space-x-3">
+            <img 
+              src="https://flagcdn.com/w40/th.png" 
+              alt="Thailand Flag" 
+              className="w-8 h-auto"
+            />
+            <span className="text-xl font-bold text-gray-800">
+              Thailand TDAC
+            </span>
+          </Link>
 
-            {/* Right Side Buttons */}
-            <div className="flex space-x-4">
-              <button className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-3 px-6 rounded border border-gray-300">
-                Check Status
-              </button>
-              <button 
-                onClick={() => setCurrentPage('apply')}
-                className="bg-red-800 hover:bg-red-900 text-white font-semibold py-3 px-6 rounded"
-              >
-                Apply For Thailand Digital Arrival Card
-              </button>
-            </div>
+          {/* Navigation Buttons on the right */}
+          <div className="flex items-center space-x-4">
+            <NavLink
+              to="/check-status"
+              className="px-5 py-2 text-sm font-semibold text-gray-600 bg-white border border-gray-300 rounded-md hover:bg-gray-100 transition-colors"
+            >
+              Check Status
+            </NavLink>
+            <NavLink
+              to="/apply"
+              className="px-5 py-2 text-sm font-semibold text-white bg-red-800 rounded-md hover:bg-red-900 transition-colors"
+            >
+              Apply For Thailand Digital Arrival Card
+            </NavLink>
           </div>
-        </div>
-      </header>
-    </div>
-  )
-}
 
-export default Header
+        </div>
+      </nav>
+    </header>
+  );
+};
+
+export default Header;

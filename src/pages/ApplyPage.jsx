@@ -1,121 +1,86 @@
-import MultiStepNav from '../components/ApplyForm/MultiStepNav'
-import Step1_Prerequisite from '../components/ApplyForm/Step1_Prerequisite'
-import Step2_TravelInfo from '../components/ApplyForm/Step2_TravelInfo'
-import Step3_Payment from '../components/ApplyForm/Step3_Payment'
-import { useState } from 'react'
+import React, { useState } from 'react';
+import StepIndicator from '../components/ApplyForm/StepIndicator.jsx';
+import Step1_Prerequisite from '../components/ApplyForm/Step1_Prerequisite.jsx';
+import Step2_TravelInfo from '../components/ApplyForm/Step2_TravelInfo.jsx';
+import Step3_Payment from '../components/ApplyForm/Step3_Payment.jsx';
+
+
 
 const ApplyPage = () => {
-  const [currentStep, setCurrentStep] = useState(1)
+  const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState({
-    // Step 1 - Prerequisites
-    hasPassport: false,
-    hasFlight: false,
-    hasAccommodation: false,
-    
-    // Step 2 - Travel Information
-    personalInfo: {
-      firstName: '',
-      lastName: '',
-      email: '',
-      phone: '',
-      nationality: '',
-      passportNumber: '',
-      passportExpiry: '',
-      dateOfBirth: ''
-    },
-    travelInfo: {
-      arrivalDate: '',
-      departureDate: '',
-      flightNumber: '',
-      accommodation: '',
-      purposeOfVisit: ''
-    },
-    
-    // Step 3 - Payment
-    paymentMethod: '',
-    cardInfo: {
-      cardNumber: '',
-      expiryDate: '',
-      cvv: '',
-      cardholderName: ''
-    }
-  })
+    // --- Step 1 Data ---
+    arrivalDate: '',
+    passportNumber: '',
+    firstName: '',
+    lastName: '',
+    dateOfBirth: '',
+    nationality: '',
+    countryOfResidence: '',
+    email: '',
+    confirmEmail: '',
+    phoneCode: 'India (+91)',
+    phoneNumber: '',
+    gender: 'Male',
+    additionalTravelers: [],
 
-  const nextStep = () => {
-    if (currentStep < 3) {
-      setCurrentStep(currentStep + 1)
-    }
-  }
+    // --- Step 2 Data ---
+    departureCountry: '',
+    purposeOfVisit: 'Vacation',
+    flightNumber: '',
+    provinceOfStay: '',
+    addressInThailand: '',
 
-  const prevStep = () => {
-    if (currentStep > 1) {
-      setCurrentStep(currentStep - 1)
-    }
-  }
+    // --- Step 3 Data ---
+    processingSpeed: 'standard', // 'standard' or 'fast'
+  });
 
-  const updateFormData = (section, data) => {
-    setFormData(prev => ({
-      ...prev,
-      [section]: { ...prev[section], ...data }
-    }))
-  }
+  // Function to go to the next step
+  const handleNext = () => {
+    setCurrentStep(prev => prev + 1);
+  };
+
+  // Function to go to the previous step
+  const handleBack = () => {
+    setCurrentStep(prev => prev - 1);
+  };
+
+  // Function to update form data from child components
+  const updateFormData = (data) => {
+    setFormData(prev => ({ ...prev, ...data }));
+  };
 
   const renderStep = () => {
     switch (currentStep) {
       case 1:
-        return (
-          <Step1_Prerequisite 
-            formData={formData}
-            updateFormData={updateFormData}
-            nextStep={nextStep}
-          />
-        )
+        return <Step1_Prerequisite formData={formData} updateFormData={updateFormData} onNext={handleNext} />;
       case 2:
-        return (
-          <Step2_TravelInfo 
-            formData={formData}
-            updateFormData={updateFormData}
-            nextStep={nextStep}
-            prevStep={prevStep}
-          />
-        )
+        return <Step2_TravelInfo formData={formData} updateFormData={updateFormData} onNext={handleNext} onBack={handleBack} />;
       case 3:
-        return (
-          <Step3_Payment 
-            formData={formData}
-            updateFormData={updateFormData}
-            prevStep={prevStep}
-          />
-        )
+        return <Step3_Payment formData={formData} updateFormData={updateFormData} onBack={handleBack} />;
       default:
-        return null
+        return <Step1_Prerequisite formData={formData} updateFormData={updateFormData} onNext={handleNext} />;
     }
-  }
+  };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 to-orange-100 py-12">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Page Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-amber-900 font-mono mb-4">
-            Apply For Thailand Digital Arrival Card
-          </h1>
-          <p className="text-xl text-amber-800 font-mono">
-            Complete your application in 3 simple steps
-          </p>
-          <div className="w-24 h-1 bg-gradient-to-r from-amber-600 to-orange-600 mx-auto rounded-full mt-4"></div>
-        </div>
-
-        {/* Progress Navigation */}
-        <MultiStepNav currentStep={currentStep} />
-
-        {/* Form Content */}
-        <div className="bg-white/90 backdrop-blur-sm rounded-lg border-2 border-amber-200 shadow-lg p-8">
-          {renderStep()}
+    <div className="bg-gray-50 min-h-screen py-12">
+      <div className="max-w-6xl mx-auto px-4">
+        <div className="bg-white rounded-lg shadow-xl flex">
+          {/* Left Side: Step Indicator */}
+          <div className="w-1/4 p-8 border-r border-gray-200">
+            <StepIndicator currentStep={currentStep} />
+          </div>
+          
+          {/* Right Side: Form Content */}
+          <div className="w-3/4 p-8">
+            {renderStep()}
+          </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ApplyPage
+export default ApplyPage;
+
